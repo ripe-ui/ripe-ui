@@ -6,6 +6,8 @@ on:
       - "main"
 jobs:
   deploy:
+    env:
+      NODE_OPTIONS: '--openssl-legacy-provider'
     environment:
       name: github-pages
       url: ${{ steps.build-publish.outputs.page_url }}
