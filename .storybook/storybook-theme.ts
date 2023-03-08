@@ -7,6 +7,6 @@ export default create({
   colorPrimary: 'rgba(243, 220, 81, 1)',
   colorSecondary: 'rgba(243, 220, 81, 1)',
 
-  brandTitle: "Ripe Design System",
-  brandUrl: "https://github.com/ripeplan",
+  brandTitle: "Ripe UI",
+  brandUrl: "https://github.com/ripeplan/ripe-ui",
 });
