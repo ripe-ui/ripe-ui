@@ -21,13 +21,6 @@ export default {
   args: {
     section: SectionType.Footer
   },
-  parameters: {
-    docs: {
-      description: {
-        component: 'TODO',
-      },
-    },
-  },
 } as ComponentMeta<typeof NavbarSectionComponent>;
 
 const Template: ComponentStory<typeof NavbarSectionComponent> = (args) => (

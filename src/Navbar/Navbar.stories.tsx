@@ -21,7 +21,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'This is a navbar component. It is used to navigate between pages. It is a container for NavbarItems.',
+        component: 'Navbar is a component that is used to create a navbar that is placed on the side of the application. It can be expanded or used in a smaller mode for different applications.',
       },
     },
   },
