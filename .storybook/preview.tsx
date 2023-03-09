@@ -4,6 +4,7 @@ import { Parameters, StoryContext } from '@storybook/react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { MantineProvider } from '@mantine/core';
+import theme from "./storybook-theme";
 
 /**
  * Add global context for RTL-LTR switching
@@ -38,12 +39,16 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
 export const parameters: Parameters = {
   controls: { expanded: true },
   viewport: { viewports: INITIAL_VIEWPORTS },
+  viewMode: 'docs',
   options: {
     // @ts-ignore
     storySort: (a, b) =>
       a[1].kind === b[1].kind
         ? 0
         : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
+  },
+  docs: {
+    theme,
   }
 }
 

@@ -9,7 +9,7 @@ interface NavbarItemProps {
   onClick?(): void;
 }
 
-export default function NavbarItem({ icon: Icon, color, label, active, wide, onClick }: NavbarItemProps) {
+export function NavbarItem({ icon: Icon, color, label, active, wide, onClick }: NavbarItemProps) {
   const { classes, cx } = createStyles((theme) => ({
     link: {
       width: wide ? '100%' : rem(50),
@@ -43,8 +43,14 @@ export default function NavbarItem({ icon: Icon, color, label, active, wide, onC
   return (
     wide ?
       (<UnstyledButton onClick={onClick} className={cx(classes.link, { [classes.active]: active })}>
-        <Icon size="1.2rem" stroke={1.5} />
-        {label}
+        <div style={{ margin: 'auto', display: 'flex', width: '100%'}}>
+          <div style={{ paddingRight: 10, paddingLeft: 10}}>
+            <Icon size="1.4rem" stroke={1.5} />
+          </div>
+          <div style={{ margin: 'auto', flexGrow: 1 }}>
+            {label}
+          </div>
+        </div>
       </UnstyledButton>)
       :
       (<Tooltip label={label} position="right" transitionProps={{ duration: 0 }} radius={rem(8)}>
