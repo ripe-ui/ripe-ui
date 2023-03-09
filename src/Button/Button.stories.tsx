@@ -1,13 +1,13 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Button } from './Button';
+import { Button as ButtonComponent } from './Button';
 import {MdEmail} from "react-icons/all";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Components/Button',
-  component: Button,
+  component: ButtonComponent,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     buttonColor: { control: 'color' },
@@ -17,13 +17,13 @@ export default {
     buttonColor: 'rgba(243, 220, 81, 1)',
     textColor: 'black',
   }
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof ButtonComponent>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof ButtonComponent> = (args) => <ButtonComponent {...args} />;
 
-export const Default = Template.bind({});
+export const Button = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Default.args = {
+Button.args = {
   children: 'Button',
 };

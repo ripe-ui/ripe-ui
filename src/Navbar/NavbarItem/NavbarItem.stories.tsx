@@ -1,26 +1,19 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import NavbarItem from './NavbarItem';
-import {MdEmail} from "react-icons/all";
+import {NavbarItem as NavbarItemComponent} from './NavbarItem';
 import { IconSwitchHorizontal, IconAlbum, IconBone, IconCactus } from '@tabler/icons-react';
-
 const icons = { IconSwitchHorizontal, IconAlbum, IconBone, IconCactus };
 
-
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Components/Navbar/NavbarItem',
-  component: NavbarItem,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  component: NavbarItemComponent,
   argTypes: {
     icon: {
-      options: Object.keys(icons), // An array of serializable values
-      mapping: icons, // Maps serializable option values to complex arg values
+      options: Object.keys(icons),
+      mapping: icons,
       control: {
-        type: 'select', // Type 'select' is automatically inferred when 'options' is defined
+        type: 'select',
         labels: {
-          // 'labels' maps option values to string labels
           IconSwitchHorizontal: 'Sample Icon 1',
           IconAlbum: 'Sample Icon 2',
           IconBone: 'Sample Icon 3',
@@ -40,12 +33,10 @@ export default {
     wide: false, 
     active: false
   }
-} as ComponentMeta<typeof NavbarItem>;
+} as ComponentMeta<typeof NavbarItemComponent>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof NavbarItem> = (args) => (<NavbarItem {...args} />);
+const Template: ComponentStory<typeof NavbarItemComponent> = (args) => (<NavbarItemComponent {...args} />);
 
-export const Default = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Default.args = {
+export const NavbarItem = Template.bind({});
+NavbarItem.args = {
 };
