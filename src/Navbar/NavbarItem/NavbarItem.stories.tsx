@@ -1,42 +1,30 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {NavbarItem as NavbarItemComponent} from './NavbarItem';
-import { IconSwitchHorizontal, IconAlbum, IconBone, IconCactus } from '@tabler/icons-react';
-const icons = { IconSwitchHorizontal, IconAlbum, IconBone, IconCactus };
+import React from "react";
+import { StoryObj } from "@storybook/react";
 
-export default {
-  title: 'Components/Navbar/NavbarItem',
+import { MdAllInbox } from "react-icons/md";
+import { NavbarItem as NavbarItemComponent } from "./NavbarItem";
+
+const meta = {
+  title: "Components/Navbar/NavbarItem",
+  tags: ["autodocs"],
   component: NavbarItemComponent,
-  argTypes: {
-    icon: {
-      options: Object.keys(icons),
-      mapping: icons,
-      control: {
-        type: 'select',
-        labels: {
-          IconSwitchHorizontal: 'Sample Icon 1',
-          IconAlbum: 'Sample Icon 2',
-          IconBone: 'Sample Icon 3',
-          IconCactus: 'Sample Icon 4',
-        },
+  parameters: {
+    docs: {
+      description: {
+        component: "Navbar Item Component",
       },
     },
-    label: { control: 'text' },
-    color: { control: 'color' },
-    wide: { control: 'boolean' },
-    active: { control: 'boolean'}
   },
+};
+
+export default meta;
+type Story = StoryObj<typeof NavbarItemComponent>;
+
+export const NavbarSection: Story = {
+  render: (args) => <NavbarItemComponent {...args} />,
   args: {
-    icon: IconSwitchHorizontal,
-    label: 'Change project',
-    color: 'rgba(243, 220, 81, 1)',
-    wide: false, 
-    active: false
-  }
-} as ComponentMeta<typeof NavbarItemComponent>;
-
-const Template: ComponentStory<typeof NavbarItemComponent> = (args) => (<NavbarItemComponent {...args} />);
-
-export const NavbarItem = Template.bind({});
-NavbarItem.args = {
+    icon: MdAllInbox,
+    label: "Item 3",
+    color: "rgba(243, 220, 81, 1)",
+  },
 };
