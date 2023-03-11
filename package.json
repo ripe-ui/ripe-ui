@@ -1,6 +1,7 @@
 {
   "name": "ripe-ui",
   "version": "0.0.1",
+  "private": false,
   "author": "ripeplan <joshmangiola@ripeplan.com>",
   "scripts": {
     "dev": "vite",
@@ -49,9 +50,22 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.0.0-rc.1",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vite-plugin-dts": "^2.1.0",
+    "vite-plugin-linter": "^2.0.2",
+    "vite-tsconfig-paths": "^4.0.5"
   },
   "dependencies": {
     "react-icons": "^4.8.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ripeplan/ripe-ui"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/ripeplan/ripe-ui/issues"
+  },
+  "homepage": "https://ripe-ui.com",
+  "license": "MIT"
 }

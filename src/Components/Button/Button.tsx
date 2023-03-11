@@ -5,7 +5,7 @@ import {
   rem,
 } from "@mantine/core";
 
-interface ButtonProps extends MantineButtonProps {
+export interface ButtonProps extends MantineButtonProps {
   buttonColor: string;
   textColor: string;
 }
