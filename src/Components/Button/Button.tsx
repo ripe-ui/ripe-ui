@@ -2,8 +2,8 @@ import React from "react";
 import {
   Button as MantineButton,
   ButtonProps as MantineButtonProps,
-  rem,
 } from "@mantine/core";
+import styled from "styled-components";
 
 export interface ButtonProps extends MantineButtonProps {
   buttonColor: string;
@@ -11,24 +11,19 @@ export interface ButtonProps extends MantineButtonProps {
 }
 
 export function Button({ buttonColor, textColor, children }: ButtonProps) {
-  return (
-    <MantineButton
-      styles={(theme) => ({
-        root: {
-          backgroundColor: buttonColor,
-          color: textColor,
-          border: 0,
-          borderRadius: rem(8),
-          height: rem(42),
-          paddingLeft: rem(20),
-          paddingRight: rem(20),
-          "&:not([data-disabled])": theme.fn.hover({
-            backgroundColor: theme.fn.darken(buttonColor, 0.02),
-          }),
-        },
-      })}
-    >
-      {children}
-    </MantineButton>
-  );
+  const StyledButton = styled(MantineButton)`
+    background-color: ${buttonColor};
+    color: ${textColor};
+    border: 0;
+    border-radius: 8px;
+    height: 42px;
+    padding-left: 20px;
+    padding-right: 20px;
+    &:not([data-disabled]):hover {
+      filter: brightness(85%);
+      background-color: ${buttonColor};
+    }
+  `;
+
+  return <StyledButton>{children}</StyledButton>;
 }
