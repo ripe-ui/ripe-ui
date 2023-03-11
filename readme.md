@@ -9,9 +9,15 @@
 	</strong>
 </p>
 <p align="center">
-	<a href="https://github.com/ripeplan/ripe-ui/actions"><img
-		alt="Build Status"
-		src="https://github.com/ripeplan/ripe-ui/actions/workflows/static.yml/badge.svg"></a>
+	<a href="https://github.com/ripeplan/ripe-ui/actions">
+    <img alt="Build Status" src="https://github.com/ripeplan/ripe-ui/actions/workflows/static.yml/badge.svg">
+  </a>
+  <a href="https://github.com/ripeplan/ripe-ui/actions">
+    <img alt="Publish to NPM Status" src="https://github.com/ripeplan/ripe-ui/actions/workflows/publish.yml/badge.svg">
+  </a>
+	<a href="https://badge.fury.io/js/@ripe-ui%2Freact">
+    <img src="https://badge.fury.io/js/@ripe-ui%2Freact.svg" alt="npm version" height="18">
+  </a>
 </p>
 
 ## Overview
