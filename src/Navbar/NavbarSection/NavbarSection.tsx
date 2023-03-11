@@ -1,10 +1,10 @@
-import React from 'react';
-import { Navbar as MantineNavbar, Center, Stack } from '@mantine/core';
+import React from "react";
+import { Navbar as MantineNavbar, Center, Stack } from "@mantine/core";
 
 export enum SectionType {
   Main,
   Footer,
-  Logo
+  Logo,
 }
 
 interface NavbarSectionProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -20,7 +20,7 @@ export function NavbarSection({ children, section }: NavbarSectionProps) {
             {children}
           </Stack>
         </MantineNavbar.Section>
-      )
+      );
     case SectionType.Footer:
       return (
         <MantineNavbar.Section mb={2}>
@@ -28,12 +28,10 @@ export function NavbarSection({ children, section }: NavbarSectionProps) {
             {children}
           </Stack>
         </MantineNavbar.Section>
-      )
+      );
     case SectionType.Logo:
-      return (
-        <Center>
-          {children}
-        </Center>
-      )
+      return <Center>{children}</Center>;
+    default:
+      return <div />;
   }
 }
