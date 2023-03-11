@@ -1,4 +1,4 @@
-name: Build and Publish storybook to GitHub Pages
+name: Publish Storybook
 
 permissions:
   contents: read
