@@ -1,8 +1,8 @@
 {
-  "name": "@ripeplan/react",
+  "name": "@ripe-ui/react",
   "version": "0.0.4",
   "private": false,
-  "author": "ripe-ui <joshmangiola@ripeplan.com>",
+  "author": "ripe-ui <contact@ripe-ui.com>",
   "files": [
     "dist"
   ],
