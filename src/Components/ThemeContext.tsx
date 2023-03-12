@@ -1,8 +1,10 @@
 import * as React from "react";
+import { getBase } from "./ThemeContext.styles";
 
 export interface ThemeProps {
   primaryColor: string;
   secondaryColor: string;
+  fontFamily: string;
 }
 
 export const ThemeContext = React.createContext<ThemeProps | null>(null);
@@ -14,7 +16,10 @@ export function ThemeProvider({
   children: React.ReactNode;
   theme: ThemeProps;
 }) {
+  const Base = getBase(theme.fontFamily);
   return (
-    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={theme}>
+      <Base>{children}</Base>
+    </ThemeContext.Provider>
   );
 }

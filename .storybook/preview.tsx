@@ -24,7 +24,11 @@ const preview = {
 export const decorators = [
   (Story) => (
     <ThemeProvider
-      theme={{ primaryColor: "rgba(243, 220, 81, 1)", secondaryColor: "red" }}
+      theme={{
+        primaryColor: "rgba(243, 220, 81, 1)",
+        secondaryColor: "red",
+        fontFamily: "Nunito, sans-serif",
+      }}
     >
       <Story />
     </ThemeProvider>

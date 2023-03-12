@@ -1,29 +1,21 @@
 import React, { useContext } from "react";
-import {
-  Navbar as MantineNavbar,
-  NavbarProps as MantineNavbarProps,
-} from "@mantine/core";
-import styled from "styled-components";
+
 import { getColor } from "../../Utils/getColor";
 import { ThemeContext } from "../ThemeContext";
+import { getStyledNavbar } from "./Navbar.styles";
 
-export interface NavbarProps extends MantineNavbarProps {
+export interface NavbarProps {
   bg: string;
   wide?: boolean;
+  children: React.ReactNode;
 }
 
 export function Navbar({ children, bg, wide }: NavbarProps) {
   const theme = useContext(ThemeContext);
   const navbarColor = getColor(theme, bg);
 
-  const StyledNavbar = styled(MantineNavbar)`
-    background-color: ${navbarColor};
-    border: none;
-    width: ${wide ? "100%" : "80px"};
-    height: 750px;
-  `;
-
-  return <StyledNavbar p="md">{children}</StyledNavbar>;
+  const StyledNavbar = getStyledNavbar(navbarColor, wide);
+  return <StyledNavbar>{children}</StyledNavbar>;
 }
 
 Navbar.defaultProps = {

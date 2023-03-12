@@ -37,18 +37,24 @@ type Story = StoryObj<typeof NavbarSectionComponent>;
 export const NavbarSection: Story = {
   render: (args) => (
     <NavbarSectionComponent {...args}>
-      <NavbarItem
-        wide={false}
-        icon={MdAllInbox}
-        label="Item 3"
-        bg="rgba(243, 220, 81, 1)"
-      />
-      <NavbarItem
-        wide={false}
-        icon={MdAllInbox}
-        label="Item 4"
-        bg="rgba(243, 220, 81, 1)"
-      />
+      {args.section === SectionType.Logo ? (
+        <div>Logo</div>
+      ) : (
+        <>
+          <NavbarItem
+            wide={false}
+            icon={MdAllInbox}
+            label="Item 3"
+            bg="rgba(243, 220, 81, 1)"
+          />
+          <NavbarItem
+            wide={false}
+            icon={MdAllInbox}
+            label="Item 4"
+            bg="rgba(243, 220, 81, 1)"
+          />
+        </>
+      )}
     </NavbarSectionComponent>
   ),
   args: {

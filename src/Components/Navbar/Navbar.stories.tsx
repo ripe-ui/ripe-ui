@@ -33,7 +33,7 @@ export const Navbar: Story = {
         <NavbarSection section={SectionType.Logo}>
           <div style={{ fontSize: "30px" }}>Logo</div>
         </NavbarSection>
-        <NavbarSection section={SectionType.Main}>
+        <NavbarSection section={SectionType.Main} wide={args.wide}>
           <NavbarItem
             active
             wide={args.wide}
@@ -54,7 +54,7 @@ export const Navbar: Story = {
             bg={args.bg}
           />
         </NavbarSection>
-        <NavbarSection section={SectionType.Footer}>
+        <NavbarSection section={SectionType.Footer} wide={args.wide}>
           <NavbarItem
             wide={args.wide}
             icon={MdEmail}
