@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-// import styled from "styled-components";
+import { FaGithub } from "react-icons/fa";
 import { getColor } from "../../Utils/getColor";
 
-import { Button } from "../Button/Button";
+import { IconButton } from "../Button/IconButton/IconButton";
 import { ThemeContext } from "../ThemeContext";
+
+import { getStyledHeader, HeaderRight, Logo } from "./Header.styles";
 
 export interface HeaderProps {
   bg?: string;
@@ -13,39 +15,24 @@ export function Header({ bg }: HeaderProps) {
   const theme = useContext(ThemeContext);
   const headerColor = getColor(theme, bg);
 
-  // const StyledHeader = styled.div`
-  //   background-color: ${headerColor};
-  //   padding: 20px 10px;
-  //   display: flex;
-  // `;
-
-  // const HeaderRight = styled.div`
-  //   flex-grow: 1;
-  //   display: flex;
-  //   justify-content: right;
-  //   gap: 3px;
-  // `;
-
-  // const Logo = styled.div`
-  //   font-size: 30px;
-  //   padding-left: 20px;
-  // `;
+  const StyledHeader = getStyledHeader(headerColor);
 
   return (
-    <div>
-      <div>Ripe Plan</div>
-      <div>
-        <Button bg={headerColor} color="black">
-          Home
-        </Button>
-        <Button bg={headerColor} color="black">
-          Products
-        </Button>
-        <Button bg={headerColor} color="black">
-          Blog
-        </Button>
-      </div>
-    </div>
+    <StyledHeader>
+      <Logo>Ripe UI</Logo>
+      <HeaderRight>
+        <IconButton
+          bg={bg}
+          icon={<FaGithub />}
+          href="https://github.com/ripeplan"
+        />
+        <IconButton
+          bg={bg}
+          icon={<FaGithub />}
+          href="https://github.com/ripeplan"
+        />
+      </HeaderRight>
+    </StyledHeader>
   );
 }
 

@@ -28,7 +28,7 @@ type Story = StoryObj<typeof NavbarItemComponent>;
 export const NavbarSection: Story = {
   render: (args) => <NavbarItemComponent {...args} />,
   args: {
-    icon: MdAllInbox,
+    icon: <MdAllInbox />,
     label: "Item 3",
   },
 };

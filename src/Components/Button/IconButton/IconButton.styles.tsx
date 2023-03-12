@@ -1,18 +1,28 @@
 import { styled } from "@stitches/react";
 
 const buttonStyle = (buttonColor: string, color: string) => ({
-  backgroundColor: buttonColor,
-  color,
-  border: 0,
+  width: "50px",
+  height: "50px",
+  border: "none",
   borderRadius: "8px",
-  height: "42px",
-  fontSize: "14px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  color: "black",
+  opacity: 0.85,
   cursor: "pointer",
-  paddingLeft: "20px",
-  paddingRight: "20px",
-  "&:not([data-disabled]):hover": {
-    filter: "brightness(85%)",
+  backgroundColor: buttonColor,
+
+  svg: {
+    display: "flex",
+    width: "20px",
+    height: "20px",
+    margin: "auto",
+  },
+
+  "&:hover": {
     backgroundColor: buttonColor,
+    filter: "brightness(85%)",
   },
 });
 

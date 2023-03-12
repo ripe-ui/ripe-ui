@@ -16,3 +16,8 @@ export {
   SectionType,
 } from "./Navbar/NavbarSection/NavbarSection";
 export type { NavbarSectionProps } from "./Navbar/NavbarSection/NavbarSection";
+
+export { Header } from "./Header/Header";
+export { HeaderRight, Logo } from "./Header/Header.styles";
+
+export type { HeaderProps } from "./Header/Header";
