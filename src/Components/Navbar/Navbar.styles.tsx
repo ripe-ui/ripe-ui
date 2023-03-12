@@ -8,7 +8,7 @@ export const getStyledNavbar = (
     backgroundColor: navbarColor,
     border: "none",
     width: wide ? "100%" : "80px",
-    height: "750px",
+    height: "100vh",
     display: "flex",
     flexDirection: "column",
   });

@@ -43,13 +43,13 @@ export const NavbarSection: Story = {
         <>
           <NavbarItem
             wide={false}
-            icon={MdAllInbox}
+            icon={<MdAllInbox />}
             label="Item 3"
             bg="rgba(243, 220, 81, 1)"
           />
           <NavbarItem
             wide={false}
-            icon={MdAllInbox}
+            icon={<MdAllInbox />}
             label="Item 4"
             bg="rgba(243, 220, 81, 1)"
           />

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { ReactNode, useContext } from "react";
 // import { rem, Tooltip } from "@mantine/core";
 // import styled from "styled-components";
 import { Provider, Root } from "@radix-ui/react-tooltip";
@@ -13,7 +13,7 @@ import {
 } from "./NavbarItem.styles";
 
 export interface NavbarItemProps {
-  icon: React.FC<any>;
+  icon?: ReactNode;
   label: string;
   bg?: string;
   active?: boolean;
@@ -22,7 +22,7 @@ export interface NavbarItemProps {
 }
 
 export function NavbarItem({
-  icon: Icon,
+  icon,
   bg,
   label,
   active,
@@ -36,9 +36,7 @@ export function NavbarItem({
 
   return wide ? (
     <StyledButton type="button" onClick={onClick}>
-      <IconWrapper>
-        <Icon />
-      </IconWrapper>
+      {icon ?? <IconWrapper>{icon}</IconWrapper>}
       <TextWrapper>{label}</TextWrapper>
     </StyledButton>
   ) : (
@@ -46,7 +44,7 @@ export function NavbarItem({
       <Root>
         <TooltipTrigger>
           <StyledButton type="button" onClick={onClick}>
-            <Icon />
+            {icon ?? icon}
           </StyledButton>
         </TooltipTrigger>
         <TooltipContent side="right">{label}</TooltipContent>
@@ -56,6 +54,7 @@ export function NavbarItem({
 }
 
 NavbarItem.defaultProps = {
+  icon: <div />,
   bg: null,
   active: false,
   wide: false,

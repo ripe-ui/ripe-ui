@@ -37,19 +37,19 @@ export const Navbar: Story = {
           <NavbarItem
             active
             wide={args.wide}
-            icon={MdAirlines}
+            icon={<MdAirlines />}
             label="Item 1"
             bg={args.bg}
           />
           <NavbarItem
             wide={args.wide}
-            icon={MdFace}
+            icon={<MdFace />}
             label="Item 2"
             bg={args.bg}
           />
           <NavbarItem
             wide={args.wide}
-            icon={MdAllInbox}
+            icon={<MdAllInbox />}
             label="Item 3"
             bg={args.bg}
           />
@@ -57,7 +57,7 @@ export const Navbar: Story = {
         <NavbarSection section={SectionType.Footer} wide={args.wide}>
           <NavbarItem
             wide={args.wide}
-            icon={MdEmail}
+            icon={<MdEmail />}
             label="Bottom Item"
             bg={args.bg}
           />
