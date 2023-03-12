@@ -30,7 +30,7 @@ export const Navbar: Story = {
   render: (args) => (
     <div style={{ maxWidth: "300px" }}>
       <NavbarComponent {...args}>
-        <NavbarSection section={SectionType.Logo}>
+        <NavbarSection section={SectionType.LogoCenter}>
           <div style={{ fontSize: "30px" }}>Logo</div>
         </NavbarSection>
         <NavbarSection section={SectionType.Main} wide={args.wide}>
@@ -61,6 +61,33 @@ export const Navbar: Story = {
             label="Bottom Item"
             bg={args.bg}
           />
+        </NavbarSection>
+      </NavbarComponent>
+    </div>
+  ),
+  args: {
+    bg: "",
+  },
+};
+
+export const Transparent: Story = {
+  render: (args) => (
+    <div style={{ maxWidth: "250px", color: "white" }}>
+      <NavbarComponent wide transparent>
+        <NavbarSection section={SectionType.Logo}>
+          <div style={{ fontSize: "25px" }}>Ripe UI</div>
+        </NavbarSection>
+        <NavbarSection section={SectionType.Main} wide label="Getting Started">
+          <NavbarItem wide transparent label="Item 1" bg={args.bg} />
+          <NavbarItem wide transparent label="Item 1" bg={args.bg} />
+          <NavbarItem wide transparent label="Item 1" bg={args.bg} />
+          <NavbarItem wide transparent label="Item 1" bg={args.bg} />
+        </NavbarSection>
+        <NavbarSection section={SectionType.Main} wide label="Components">
+          <NavbarItem wide transparent label="Item 1" bg={args.bg} />
+          <NavbarItem wide transparent label="Item 1" bg={args.bg} />
+          <NavbarItem wide transparent label="Item 1" bg={args.bg} />
+          <NavbarItem wide transparent label="Item 1" bg={args.bg} />
         </NavbarSection>
       </NavbarComponent>
     </div>

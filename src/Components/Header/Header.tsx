@@ -1,39 +1,22 @@
 import React, { useContext } from "react";
-import { FaGithub } from "react-icons/fa";
 import { getColor } from "../../Utils/getColor";
 
-import { IconButton } from "../Button/IconButton/IconButton";
 import { ThemeContext } from "../ThemeContext";
 
-import { getStyledHeader, HeaderRight, Logo } from "./Header.styles";
+import { getStyledHeader } from "./Header.styles";
 
 export interface HeaderProps {
   bg?: string;
+  children: React.ReactNode;
 }
 
-export function Header({ bg }: HeaderProps) {
+export function Header({ bg, children }: HeaderProps) {
   const theme = useContext(ThemeContext);
   const headerColor = getColor(theme, bg);
 
   const StyledHeader = getStyledHeader(headerColor);
 
-  return (
-    <StyledHeader>
-      <Logo>Ripe UI</Logo>
-      <HeaderRight>
-        <IconButton
-          bg={bg}
-          icon={<FaGithub />}
-          href="https://github.com/ripeplan"
-        />
-        <IconButton
-          bg={bg}
-          icon={<FaGithub />}
-          href="https://github.com/ripeplan"
-        />
-      </HeaderRight>
-    </StyledHeader>
-  );
+  return <StyledHeader>{children}</StyledHeader>;
 }
 
 Header.defaultProps = {

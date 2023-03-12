@@ -18,6 +18,7 @@ export interface NavbarItemProps {
   bg?: string;
   active?: boolean;
   wide?: boolean;
+  transparent?: boolean;
   onClick?(): void;
 }
 
@@ -27,12 +28,13 @@ export function NavbarItem({
   label,
   active,
   wide,
+  transparent,
   onClick,
 }: NavbarItemProps) {
   const theme = useContext(ThemeContext);
   const buttonColor = getColor(theme, bg);
 
-  const StyledButton = getStyledButton(buttonColor, wide, active);
+  const StyledButton = getStyledButton(buttonColor, wide, active, transparent);
 
   return wide ? (
     <StyledButton type="button" onClick={onClick}>
@@ -58,5 +60,6 @@ NavbarItem.defaultProps = {
   bg: null,
   active: false,
   wide: false,
+  transparent: false,
   onClick: () => {},
 };
