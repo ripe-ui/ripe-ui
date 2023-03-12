@@ -1,34 +1,32 @@
-import React from "react";
-import {
-  Button as MantineButton,
-  ButtonProps as MantineButtonProps,
-  rem,
-} from "@mantine/core";
+import React, { useContext } from "react";
+import { Button as MantineButton } from "@mantine/core";
+import styled from "styled-components";
+import { getColor } from "src/Utils/getColor";
+import { ThemeContext } from "../ThemeContext";
 
-export interface ButtonProps extends MantineButtonProps {
-  buttonColor: string;
-  textColor: string;
+export interface ButtonProps {
+  bg: string;
+  color: string;
+  children: React.ReactNode;
 }
 
-export function Button({ buttonColor, textColor, children }: ButtonProps) {
-  return (
-    <MantineButton
-      styles={(theme) => ({
-        root: {
-          backgroundColor: buttonColor,
-          color: textColor,
-          border: 0,
-          borderRadius: rem(8),
-          height: rem(42),
-          paddingLeft: rem(20),
-          paddingRight: rem(20),
-          "&:not([data-disabled])": theme.fn.hover({
-            backgroundColor: theme.fn.darken(buttonColor, 0.02),
-          }),
-        },
-      })}
-    >
-      {children}
-    </MantineButton>
-  );
+export function Button({ bg, color, children }: ButtonProps) {
+  const theme = useContext(ThemeContext);
+  const buttonColor = getColor(theme, bg);
+
+  const StyledButton = styled(MantineButton)`
+    background-color: ${buttonColor};
+    color: ${color};
+    border: 0;
+    border-radius: 8px;
+    height: 42px;
+    padding-left: 20px;
+    padding-right: 20px;
+    &:not([data-disabled]):hover {
+      filter: brightness(85%);
+      background-color: ${buttonColor};
+    }
+  `;
+
+  return <StyledButton>{children}</StyledButton>;
 }

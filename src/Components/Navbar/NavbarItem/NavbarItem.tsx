@@ -1,10 +1,13 @@
-import React from "react";
-import { createStyles, rem, Tooltip, UnstyledButton } from "@mantine/core";
+import React, { useContext } from "react";
+import { rem, Tooltip, UnstyledButton } from "@mantine/core";
+import styled from "styled-components";
+import { ThemeContext } from "../../ThemeContext";
+import { getColor } from "../../../Utils/getColor";
 
-interface NavbarItemProps {
+export interface NavbarItemProps {
   icon: React.FC<any>;
   label: string;
-  color: string;
+  bg?: string;
   active?: boolean;
   wide?: boolean;
   onClick?(): void;
@@ -12,48 +15,70 @@ interface NavbarItemProps {
 
 export function NavbarItem({
   icon: Icon,
-  color,
+  bg,
   label,
   active,
   wide,
   onClick,
 }: NavbarItemProps) {
-  const { classes, cx } = createStyles((theme) => ({
-    link: {
-      width: wide ? "100%" : rem(50),
-      height: rem(50),
-      borderRadius: rem(8),
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      color: theme.black,
-      opacity: 0.85,
+  const theme = useContext(ThemeContext);
+  const buttonColor = getColor(theme, bg);
 
-      "&:hover": {
-        opacity: 1,
-        backgroundColor: theme.fn.darken(color, 0.1),
-      },
-    },
+  const StyledButton = styled(UnstyledButton)<{
+    children: any;
+    onClick?(): void;
+  }>`
+    width: ${wide ? "100%" : "50px"} !important;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: "center";
+    justify-content: "center";
+    color: "black";
+    opacity: 0.85;
+    margin: auto;
+    background-color: ${buttonColor};
 
-    active: {
-      opacity: 1,
-      "&, &:hover": {
-        backgroundColor: theme.fn.darken(color, 0.15),
-      },
-    },
-  }))();
+    filter: ${active ? "brightness(85%)" : ""};
+
+    svg {
+      display: flex;
+      width: 20px;
+      height: 20px;
+      margin: auto;
+    }
+
+    &:hover {
+      background-color: ${buttonColor};
+      filter: brightness(85%);
+    }
+  `;
+
+  const TextWrapper = styled.div`
+    flex-grow: 1;
+    margin: auto;
+  `;
+
+  const IconWrapper = styled.div`
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: auto;
+
+    svg {
+      display: flex;
+      width: 20px;
+      height: 20px;
+      margin: auto;
+    }
+  `;
+
   return wide ? (
-    <UnstyledButton
-      onClick={onClick}
-      className={cx(classes.link, { [classes.active]: active })}
-    >
-      <div style={{ margin: "auto", display: "flex", width: "100%" }}>
-        <div style={{ paddingRight: 10, paddingLeft: 10 }}>
-          <Icon size="1.4rem" stroke={1.5} />
-        </div>
-        <div style={{ margin: "auto", flexGrow: 1 }}>{label}</div>
-      </div>
-    </UnstyledButton>
+    <StyledButton onClick={onClick}>
+      <IconWrapper>
+        <Icon />
+      </IconWrapper>
+      <TextWrapper>{label}</TextWrapper>
+    </StyledButton>
   ) : (
     <Tooltip
       label={label}
@@ -61,17 +86,15 @@ export function NavbarItem({
       transitionProps={{ duration: 0 }}
       radius={rem(8)}
     >
-      <UnstyledButton
-        onClick={onClick}
-        className={cx(classes.link, { [classes.active]: active })}
-      >
-        <Icon size="1.2rem" stroke={1.5} />
-      </UnstyledButton>
+      <StyledButton onClick={onClick}>
+        <Icon />
+      </StyledButton>
     </Tooltip>
   );
 }
 
 NavbarItem.defaultProps = {
+  bg: null,
   active: false,
   wide: false,
   onClick: () => {},

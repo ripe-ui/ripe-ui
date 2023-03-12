@@ -20,7 +20,7 @@ export default defineConfig((configEnv) => ({
       entry: resolve("src", "Components/index.ts"),
       name: "ripe-ui-react",
       formats: ["es", "umd"],
-      fileName: (format) => `react-vite-library.${format}.js`,
+      fileName: (format) => `ripe-ui-react.${format}.js`,
     },
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],
