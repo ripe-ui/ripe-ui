@@ -1,4 +1,7 @@
+import React from "react";
 import theme from "./storybook-theme";
+import { ThemeProvider } from "../src/Components/ThemeContext";
+
 /** @type { import('@storybook/react').Preview } */
 const preview = {
   parameters: {
@@ -17,5 +20,15 @@ const preview = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <ThemeProvider
+      theme={{ primaryColor: "rgba(243, 220, 81, 1)", secondaryColor: "red" }}
+    >
+      <Story />
+    </ThemeProvider>
+  ),
+];
 
 export default preview;

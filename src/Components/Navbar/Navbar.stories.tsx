@@ -16,6 +16,11 @@ const meta = {
       },
     },
   },
+  argTypes: {
+    bg: {
+      control: "color",
+    },
+  },
 };
 
 export default meta;
@@ -34,19 +39,19 @@ export const Navbar: Story = {
             wide={args.wide}
             icon={MdAirlines}
             label="Item 1"
-            color={args.navbarColor}
+            bg={args.bg}
           />
           <NavbarItem
             wide={args.wide}
             icon={MdFace}
             label="Item 2"
-            color={args.navbarColor}
+            bg={args.bg}
           />
           <NavbarItem
             wide={args.wide}
             icon={MdAllInbox}
             label="Item 3"
-            color={args.navbarColor}
+            bg={args.bg}
           />
         </NavbarSection>
         <NavbarSection section={SectionType.Footer}>
@@ -54,13 +59,13 @@ export const Navbar: Story = {
             wide={args.wide}
             icon={MdEmail}
             label="Bottom Item"
-            color={args.navbarColor}
+            bg={args.bg}
           />
         </NavbarSection>
       </NavbarComponent>
     </div>
   ),
   args: {
-    navbarColor: "rgba(243, 220, 81, 1)",
+    bg: "",
   },
 };

@@ -7,6 +7,10 @@ export type { NavbarProps } from "./Navbar/Navbar";
 export { NavbarItem } from "./Navbar/NavbarItem/NavbarItem";
 export type { NavbarItemProps } from "./Navbar/NavbarItem/NavbarItem";
 
+export { ThemeContext, ThemeProvider } from "./ThemeContext";
+
+export type { ThemeProps } from "./ThemeContext";
+
 export {
   NavbarSection,
   SectionType,

@@ -14,6 +14,14 @@ const meta = {
       },
     },
   },
+  argTypes: {
+    bg: {
+      control: "color",
+    },
+    color: {
+      control: "color",
+    },
+  },
 };
 
 export default meta;
@@ -22,7 +30,7 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   render: (args) => <Button {...args}>Primary</Button>,
   args: {
-    buttonColor: "rgba(243, 220, 81, 1)",
-    textColor: "black",
+    bg: "rgba(243, 220, 81, 1)",
+    color: "black",
   },
 };

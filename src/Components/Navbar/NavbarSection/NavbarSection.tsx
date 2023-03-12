@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Navbar as MantineNavbar, Center, Stack } from "@mantine/core";
 

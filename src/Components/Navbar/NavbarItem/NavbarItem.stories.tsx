@@ -15,6 +15,11 @@ const meta = {
       },
     },
   },
+  argTypes: {
+    bg: {
+      control: "color",
+    },
+  },
 };
 
 export default meta;
@@ -25,6 +30,5 @@ export const NavbarSection: Story = {
   args: {
     icon: MdAllInbox,
     label: "Item 3",
-    color: "rgba(243, 220, 81, 1)",
   },
 };
