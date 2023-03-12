@@ -41,13 +41,13 @@ export const NavbarSection: Story = {
         wide={false}
         icon={MdAllInbox}
         label="Item 3"
-        color="rgba(243, 220, 81, 1)"
+        bg="rgba(243, 220, 81, 1)"
       />
       <NavbarItem
         wide={false}
         icon={MdAllInbox}
         label="Item 4"
-        color="rgba(243, 220, 81, 1)"
+        bg="rgba(243, 220, 81, 1)"
       />
     </NavbarSectionComponent>
   ),
