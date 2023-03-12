@@ -1,6 +1,10 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
-import { Navbar as MantineNavbar, Center, Stack } from "@mantine/core";
+import React from "react";
+import {
+  getFooterNavbarSection,
+  LogoNavbarSection,
+  getMainNavbarSection,
+  Stack,
+} from "./NavbarSection.styles";
 
 export enum SectionType {
   Main,
@@ -11,38 +15,32 @@ export enum SectionType {
 export interface NavbarSectionProps
   extends React.HTMLAttributes<HTMLDivElement> {
   section: SectionType;
+  wide?: boolean;
 }
 
-const MainNavbarSection = styled(MantineNavbar.Section)`
-  flex-grow: 1;
-  margin-top: 50px;
-`;
-
-const FooterNavbarSection = styled(MantineNavbar.Section)`
-  margin-bottom: 2px;
-`;
-
-export function NavbarSection({ children, section }: NavbarSectionProps) {
+export function NavbarSection({ children, section, wide }: NavbarSectionProps) {
+  const MainNavbarSection = getMainNavbarSection(wide);
+  const FooterNavbarSection = getFooterNavbarSection(wide);
   switch (section) {
     case SectionType.Main:
       return (
         <MainNavbarSection>
-          <Stack justify="center" spacing={4}>
-            {children}
-          </Stack>
+          <Stack>{children}</Stack>
         </MainNavbarSection>
       );
     case SectionType.Footer:
       return (
         <FooterNavbarSection>
-          <Stack justify="center" spacing={4}>
-            {children}
-          </Stack>
+          <Stack>{children}</Stack>
         </FooterNavbarSection>
       );
     case SectionType.Logo:
-      return <Center>{children}</Center>;
+      return <LogoNavbarSection>{children}</LogoNavbarSection>;
     default:
       return <div />;
   }
 }
+
+NavbarSection.defaultProps = {
+  wide: false,
+};

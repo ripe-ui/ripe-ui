@@ -1,8 +1,16 @@
 import React, { useContext } from "react";
-import { rem, Tooltip, UnstyledButton } from "@mantine/core";
-import styled from "styled-components";
+// import { rem, Tooltip } from "@mantine/core";
+// import styled from "styled-components";
+import { Provider, Root } from "@radix-ui/react-tooltip";
 import { ThemeContext } from "../../ThemeContext";
 import { getColor } from "../../../Utils/getColor";
+import {
+  getStyledButton,
+  IconWrapper,
+  TextWrapper,
+  TooltipContent,
+  TooltipTrigger,
+} from "./NavbarItem.styles";
 
 export interface NavbarItemProps {
   icon: React.FC<any>;
@@ -24,72 +32,26 @@ export function NavbarItem({
   const theme = useContext(ThemeContext);
   const buttonColor = getColor(theme, bg);
 
-  const StyledButton = styled(UnstyledButton)<{
-    children: any;
-    onClick?(): void;
-  }>`
-    width: ${wide ? "100%" : "50px"} !important;
-    height: 50px;
-    border-radius: 8px;
-    display: flex;
-    align-items: "center";
-    justify-content: "center";
-    color: "black";
-    opacity: 0.85;
-    margin: auto;
-    background-color: ${buttonColor};
-
-    filter: ${active ? "brightness(85%)" : ""};
-
-    svg {
-      display: flex;
-      width: 20px;
-      height: 20px;
-      margin: auto;
-    }
-
-    &:hover {
-      background-color: ${buttonColor};
-      filter: brightness(85%);
-    }
-  `;
-
-  const TextWrapper = styled.div`
-    flex-grow: 1;
-    margin: auto;
-  `;
-
-  const IconWrapper = styled.div`
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: auto;
-
-    svg {
-      display: flex;
-      width: 20px;
-      height: 20px;
-      margin: auto;
-    }
-  `;
+  const StyledButton = getStyledButton(buttonColor, wide, active);
 
   return wide ? (
-    <StyledButton onClick={onClick}>
+    <StyledButton type="button" onClick={onClick}>
       <IconWrapper>
         <Icon />
       </IconWrapper>
       <TextWrapper>{label}</TextWrapper>
     </StyledButton>
   ) : (
-    <Tooltip
-      label={label}
-      position="right"
-      transitionProps={{ duration: 0 }}
-      radius={rem(8)}
-    >
-      <StyledButton onClick={onClick}>
-        <Icon />
-      </StyledButton>
-    </Tooltip>
+    <Provider delayDuration={0}>
+      <Root>
+        <TooltipTrigger>
+          <StyledButton type="button" onClick={onClick}>
+            <Icon />
+          </StyledButton>
+        </TooltipTrigger>
+        <TooltipContent side="right">{label}</TooltipContent>
+      </Root>
+    </Provider>
   );
 }
 
