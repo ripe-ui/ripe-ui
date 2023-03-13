@@ -1,14 +1,16 @@
 import React from "react";
 import {
   getFooterNavbarSection,
-  LogoNavbarSection,
   getMainNavbarSection,
   Stack,
+  LogoNavbarCenter,
+  LogoNavbar,
 } from "./NavbarSection.styles";
 
 export enum SectionType {
   Main,
   Footer,
+  LogoCenter,
   Logo,
 }
 
@@ -16,15 +18,30 @@ export interface NavbarSectionProps
   extends React.HTMLAttributes<HTMLDivElement> {
   section: SectionType;
   wide?: boolean;
+  label?: string;
+  transparent?: boolean;
 }
 
-export function NavbarSection({ children, section, wide }: NavbarSectionProps) {
-  const MainNavbarSection = getMainNavbarSection(wide);
+export function NavbarSection({
+  children,
+  section,
+  wide,
+  transparent,
+  label,
+}: NavbarSectionProps) {
+  const MainNavbarSection = getMainNavbarSection(wide, transparent);
   const FooterNavbarSection = getFooterNavbarSection(wide);
   switch (section) {
     case SectionType.Main:
       return (
         <MainNavbarSection>
+          {label ? (
+            <div style={{ marginLeft: "20px", marginBottom: "8px" }}>
+              {label}
+            </div>
+          ) : (
+            ""
+          )}
           <Stack>{children}</Stack>
         </MainNavbarSection>
       );
@@ -35,7 +52,9 @@ export function NavbarSection({ children, section, wide }: NavbarSectionProps) {
         </FooterNavbarSection>
       );
     case SectionType.Logo:
-      return <LogoNavbarSection>{children}</LogoNavbarSection>;
+      return <LogoNavbar>{children}</LogoNavbar>;
+    case SectionType.LogoCenter:
+      return <LogoNavbarCenter>{children}</LogoNavbarCenter>;
     default:
       return <div />;
   }
@@ -43,4 +62,6 @@ export function NavbarSection({ children, section, wide }: NavbarSectionProps) {
 
 NavbarSection.defaultProps = {
   wide: false,
+  label: null,
+  transparent: false,
 };

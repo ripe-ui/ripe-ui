@@ -4,21 +4,24 @@ import { Trigger, Content } from "@radix-ui/react-tooltip";
 export const getStyledButton = (
   buttonColor: string,
   wide: boolean | undefined,
-  active: boolean | undefined
+  active: boolean | undefined,
+  transparent: boolean | undefined
 ) =>
   styled("button", {
     width: wide ? "100%" : "50px",
-    height: "50px",
+    paddingTop: transparent ? "8px" : "0px",
+    paddingBottom: transparent ? "8px" : "0px",
+    height: transparent ? "auto" : "50px",
     border: "none",
-    borderRadius: "8px",
+    borderRadius: transparent ? "0px" : "8px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    color: "black",
+    color: transparent ? "white" : "black",
     opacity: 0.85,
     margin: "auto",
     cursor: "pointer",
-    backgroundColor: buttonColor,
+    backgroundColor: transparent ? "transparent" : buttonColor,
     filter: active ? "brightness(85%)" : "",
 
     svg: {
@@ -30,13 +33,15 @@ export const getStyledButton = (
 
     "&:hover": {
       backgroundColor: buttonColor,
-      filter: "brightness(85%)",
+      filter: transparent ? "" : "brightness(85%)",
+      color: "black",
     },
   });
 
 export const TextWrapper = styled("div", {
   flexGrow: 1,
   margin: "auto",
+  marginLeft: "20px",
   textAlign: "left",
   fontSize: "14px",
 });
