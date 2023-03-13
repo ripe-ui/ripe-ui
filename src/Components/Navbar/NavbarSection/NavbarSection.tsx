@@ -35,7 +35,13 @@ export function NavbarSection({
     case SectionType.Main:
       return (
         <MainNavbarSection>
-          {label ? <div style={{ marginLeft: "20px" }}>{label}</div> : ""}
+          {label ? (
+            <div style={{ marginLeft: "20px", marginBottom: "8px" }}>
+              {label}
+            </div>
+          ) : (
+            ""
+          )}
           <Stack>{children}</Stack>
         </MainNavbarSection>
       );
