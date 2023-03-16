@@ -1,8 +1,8 @@
-export { Button } from "./Button/Button";
-export type { ButtonProps } from "./Button/Button";
+export { Button } from "./Buttons/Button";
+export type { ButtonProps } from "./Buttons/Button";
 
-export { IconButton } from "./Button/IconButton/IconButton";
-export type { IconButtonProps } from "./Button/IconButton/IconButton";
+export { IconButton } from "./Buttons/IconButton/IconButton";
+export type { IconButtonProps } from "./Buttons/IconButton/IconButton";
 
 export { Navbar } from "./Navbar/Navbar";
 export type { NavbarProps } from "./Navbar/Navbar";

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { getColor } from "src/Utils/getColor";
-import { ThemeContext } from "../ThemeContext";
+import { getPrimary } from "src/Utils/getColor";
+import { ThemeContext } from "../../ThemeContext";
 import { getStyledButton } from "./Button.styles";
 
 export interface ButtonProps {
@@ -11,7 +11,7 @@ export interface ButtonProps {
 
 export function Button({ bg, color, children }: ButtonProps) {
   const theme = useContext(ThemeContext);
-  const buttonColor = getColor(theme, bg);
+  const buttonColor = getPrimary(theme, bg);
 
   const StyledButton = getStyledButton(buttonColor, color);
 

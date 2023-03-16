@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { getColor } from "../../Utils/getColor";
+import { getPrimary } from "../../Utils/getColor";
 import { ThemeContext } from "../ThemeContext";
 import { getStyledNavbar } from "./Navbar.styles";
 
@@ -13,7 +13,7 @@ export interface NavbarProps {
 
 export function Navbar({ children, bg, wide, transparent }: NavbarProps) {
   const theme = useContext(ThemeContext);
-  const navbarColor = getColor(theme, bg);
+  const navbarColor = getPrimary(theme, bg);
 
   const StyledNavbar = getStyledNavbar(navbarColor, wide, transparent);
   return <StyledNavbar>{children}</StyledNavbar>;
