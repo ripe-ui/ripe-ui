@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { getColor } from "../../Utils/getColor";
+import { getPrimary } from "../../Utils/getColor";
 
 import { ThemeContext } from "../ThemeContext";
 
-import { getStyledHeader } from "./Header.styles";
+import { getStyledHeader, HeaderContent } from "./Header.styles";
 
 export interface HeaderProps {
   bg?: string;
@@ -12,11 +12,15 @@ export interface HeaderProps {
 
 export function Header({ bg, children }: HeaderProps) {
   const theme = useContext(ThemeContext);
-  const headerColor = getColor(theme, bg);
+  const headerColor = getPrimary(theme, bg);
 
   const StyledHeader = getStyledHeader(headerColor);
 
-  return <StyledHeader>{children}</StyledHeader>;
+  return (
+    <StyledHeader>
+      <HeaderContent>{children}</HeaderContent>
+    </StyledHeader>
+  );
 }
 
 Header.defaultProps = {

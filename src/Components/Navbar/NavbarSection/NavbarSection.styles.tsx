@@ -26,10 +26,10 @@ export const LogoNavbarCenter = styled("div", {
 });
 
 export const LogoNavbar = styled("div", {
-  marginRight: "auto",
-  marginLeft: "20px",
-  marginTop: "20px",
-  marginBottom: "20px",
+  paddingRight: "20px",
+  paddingLeft: "20px",
+  paddingTop: "30px",
+  paddingBottom: "10px",
 });
 
 export const Stack = styled("div", {

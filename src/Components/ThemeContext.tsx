@@ -5,6 +5,8 @@ export interface ThemeProps {
   primaryColor: string;
   secondaryColor: string;
   fontFamily: string;
+  textColor: string;
+  bg: string;
 }
 
 export const ThemeContext = React.createContext<ThemeProps | null>(null);

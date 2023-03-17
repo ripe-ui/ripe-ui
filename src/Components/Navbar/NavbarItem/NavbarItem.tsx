@@ -3,7 +3,7 @@ import React, { ReactNode, useContext } from "react";
 // import styled from "styled-components";
 import { Provider, Root } from "@radix-ui/react-tooltip";
 import { ThemeContext } from "../../ThemeContext";
-import { getColor } from "../../../Utils/getColor";
+import { getPrimary } from "../../../Utils/getColor";
 import {
   getStyledButton,
   IconWrapper,
@@ -32,7 +32,7 @@ export function NavbarItem({
   onClick,
 }: NavbarItemProps) {
   const theme = useContext(ThemeContext);
-  const buttonColor = getColor(theme, bg);
+  const buttonColor = getPrimary(theme, bg);
 
   const StyledButton = getStyledButton(buttonColor, wide, active, transparent);
 
