@@ -17,12 +17,11 @@ export const getStyledButton = (
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    color: transparent ? "white" : "black",
-    opacity: 0.85,
+    color: transparent && !active ? "white" : "black",
     margin: "auto",
     cursor: "pointer",
-    backgroundColor: transparent ? "transparent" : buttonColor,
-    filter: active ? "brightness(85%)" : "",
+
+    backgroundColor: transparent && !active ? "transparent" : buttonColor,
 
     svg: {
       display: "flex",

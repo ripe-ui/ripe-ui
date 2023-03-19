@@ -28,6 +28,7 @@ export const decorators = [
         primaryColor: "rgba(243, 220, 81, 1)",
         secondaryColor: "red",
         bg: "#333333",
+        textColor: "white",
         fontFamily: "Nunito, sans-serif",
       }}
     >
