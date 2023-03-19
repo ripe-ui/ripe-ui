@@ -7,14 +7,16 @@ import { getStyledHeader, HeaderContent } from "./Header.styles";
 
 export interface HeaderProps {
   bg?: string;
+  dividerColor?: string;
+  fixed: boolean;
   children: React.ReactNode;
 }
 
-export function Header({ bg, children }: HeaderProps) {
+export function Header({ bg, children, dividerColor, fixed }: HeaderProps) {
   const theme = useContext(ThemeContext);
   const headerColor = getPrimary(theme, bg);
 
-  const StyledHeader = getStyledHeader(headerColor);
+  const StyledHeader = getStyledHeader(headerColor, dividerColor, fixed);
 
   return (
     <StyledHeader>
@@ -25,4 +27,5 @@ export function Header({ bg, children }: HeaderProps) {
 
 Header.defaultProps = {
   bg: null,
+  dividerColor: "#3a3a3a",
 };

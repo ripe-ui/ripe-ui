@@ -1,13 +1,17 @@
 import { styled } from "@stitches/react";
 
 const buttonStyle = (buttonColor: string, color: string) => ({
+  unset: "all",
+  appearance: "button",
+  textDecoration: "none",
   backgroundColor: buttonColor,
-  color,
+  color: color ?? "black",
   border: 0,
   borderRadius: "8px",
   height: "42px",
   fontSize: "14px",
   cursor: "pointer",
+  fontFamily: "inherit",
   paddingLeft: "20px",
   paddingRight: "20px",
   "&:not([data-disabled]):hover": {

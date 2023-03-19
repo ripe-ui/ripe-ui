@@ -6,18 +6,11 @@ import { HeaderRight, Logo } from "./Header.styles";
 import { IconButton } from "../Buttons/IconButton/IconButton";
 import { ButtonSize } from "../Buttons/ButtonSize";
 import { Input } from "../Inputs/Input/Input";
+import { InputSize } from "../Inputs/InputSize";
 
 const meta = {
   title: "Components/Header",
-  tags: ["autodocs"],
   component: HeaderComponent,
-  parameters: {
-    docs: {
-      description: {
-        component: "Header Component",
-      },
-    },
-  },
   argTypes: {
     bg: {
       control: "color",
@@ -55,7 +48,8 @@ export const DarkHeader: Story = {
         <Input
           placeholder="Enter to Start Searching"
           color="white"
-          style={{ width: "40%" }}
+          size={InputSize.Large}
+          icon={<FaSearch />}
         />
         <IconButton
           bg={args.bg}
@@ -69,5 +63,6 @@ export const DarkHeader: Story = {
   ),
   args: {
     bg: "color(srgb 0.2007 0.2007 0.2007)",
+    dividerColor: "color(srgb 0.2007 0.2007 0.2007)",
   },
 };

@@ -1,9 +1,15 @@
 import { styled } from "@stitches/react";
 
-export const getStyledHeader = (bg: string) =>
+export const getStyledHeader = (
+  bg: string,
+  dividerColor: string | undefined,
+  fixed: boolean
+) =>
   styled("div", {
     backgroundColor: bg,
-    width: "100vw",
+    position: fixed ? "fixed" : "relative",
+    width: "100%",
+    borderBottom: `1px solid ${dividerColor != null ? dividerColor : bg}`,
   });
 
 export const HeaderContent = styled("div", {
