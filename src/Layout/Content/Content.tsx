@@ -8,5 +8,5 @@ export interface ContentProps {
 
 export function Content({ children, fixed }: ContentProps) {
   const StyledContent = getStyledContent(fixed);
-  return <StyledContent>{children}</StyledContent>;
+  return <StyledContent className="content">{children}</StyledContent>;
 }

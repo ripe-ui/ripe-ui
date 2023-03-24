@@ -16,7 +16,7 @@ export function Navbar({ children, bg, wide, transparent }: NavbarProps) {
   const navbarColor = getPrimary(theme, bg);
 
   const StyledNavbar = getStyledNavbar(navbarColor, wide, transparent);
-  return <StyledNavbar>{children}</StyledNavbar>;
+  return <StyledNavbar className="navbar">{children}</StyledNavbar>;
 }
 
 Navbar.defaultProps = {
