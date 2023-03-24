@@ -17,12 +17,26 @@ export const HeaderContent = styled("div", {
   padding: "20px 10px",
 });
 
+export const ButtonContainer = styled("div", {
+  margin: "auto",
+  "@media (min-width: 768px)": {
+    display: "none",
+  },
+});
+
 export const HeaderRight = styled("div", {
   flexGrow: 1,
   display: "flex",
   justifyContent: "right",
   gap: "3px",
   margin: "auto",
+});
+
+export const DesktopOnlyContainer = styled("div", {
+  display: "none",
+  "@media (min-width: 768px)": {
+    display: "block",
+  },
 });
 
 export const Logo = styled("div", {

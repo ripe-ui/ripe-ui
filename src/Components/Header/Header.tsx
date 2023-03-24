@@ -1,18 +1,35 @@
 import React, { useContext } from "react";
+import { FaGithub, FaHamburger } from "react-icons/fa";
+import { MdMenu } from "react-icons/md";
 import { getPrimary } from "../../Utils/getColor";
+import { ButtonSize } from "../Buttons/ButtonSize";
+import { IconButton } from "../Buttons/IconButton/IconButton";
 
 import { ThemeContext } from "../ThemeContext";
 
-import { getStyledHeader, HeaderContent } from "./Header.styles";
+import {
+  ButtonContainer,
+  getStyledHeader,
+  HeaderContent,
+} from "./Header.styles";
 
 export interface HeaderProps {
   bg?: string;
   dividerColor?: string;
   fixed: boolean;
   children: React.ReactNode;
+  showMobileMenu: boolean;
+  mobileMenuOnClick(): void;
 }
 
-export function Header({ bg, children, dividerColor, fixed }: HeaderProps) {
+export function Header({
+  bg,
+  children,
+  dividerColor,
+  fixed,
+  showMobileMenu,
+  mobileMenuOnClick,
+}: HeaderProps) {
   const theme = useContext(ThemeContext);
   const headerColor = getPrimary(theme, bg);
 
@@ -20,7 +37,22 @@ export function Header({ bg, children, dividerColor, fixed }: HeaderProps) {
 
   return (
     <StyledHeader>
-      <HeaderContent>{children}</HeaderContent>
+      <HeaderContent>
+        {showMobileMenu ? (
+          <ButtonContainer>
+            <IconButton
+              bg={headerColor}
+              color="white"
+              size={ButtonSize.Medium}
+              icon={<MdMenu />}
+              onClick={mobileMenuOnClick}
+            />
+          </ButtonContainer>
+        ) : (
+          ""
+        )}
+        {children}
+      </HeaderContent>
     </StyledHeader>
   );
 }

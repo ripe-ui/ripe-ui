@@ -2,7 +2,7 @@ import React from "react";
 import { StoryObj } from "@storybook/react";
 import { FaGithub, FaSearch } from "react-icons/fa";
 import { Header as HeaderComponent } from "./Header";
-import { HeaderRight, Logo } from "./Header.styles";
+import { DesktopOnlyContainer, HeaderRight, Logo } from "./Header.styles";
 import { IconButton } from "../Buttons/IconButton/IconButton";
 import { ButtonSize } from "../Buttons/ButtonSize";
 import { Input } from "../Inputs/Input/Input";
@@ -45,12 +45,14 @@ export const DarkHeader: Story = {
     <HeaderComponent {...args}>
       <Logo style={{ color: "white" }}>Ripe UI</Logo>
       <HeaderRight>
-        <Input
-          placeholder="Enter to Start Searching"
-          color="white"
-          size={InputSize.Large}
-          icon={<FaSearch />}
-        />
+        <DesktopOnlyContainer>
+          <Input
+            placeholder="Enter to Start Searching"
+            color="white"
+            size={InputSize.Large}
+            icon={<FaSearch />}
+          />
+        </DesktopOnlyContainer>
         <IconButton
           bg={args.bg}
           color="white"
@@ -64,5 +66,6 @@ export const DarkHeader: Story = {
   args: {
     bg: "color(srgb 0.2007 0.2007 0.2007)",
     dividerColor: "color(srgb 0.2007 0.2007 0.2007)",
+    showMobileMenu: true,
   },
 };

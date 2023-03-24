@@ -19,10 +19,17 @@ export { NavbarItem } from "./Navbar/NavbarItem/NavbarItem";
 export type { NavbarItemProps } from "./Navbar/NavbarItem/NavbarItem";
 
 export { Header } from "./Header/Header";
-export { HeaderRight, Logo } from "./Header/Header.styles";
+export {
+  HeaderRight,
+  Logo,
+  DesktopOnlyContainer,
+} from "./Header/Header.styles";
 
 export { Content } from "../Layout/Content/Content";
 export type { ContentProps } from "../Layout/Content/Content";
+
+export { AppContainer } from "../Layout/AppContainer/AppContainer";
+export type { AppContainerProps } from "../Layout/AppContainer/AppContainer";
 
 export { Hero } from "../Layout/Hero/Hero";
 export type { HeroProps } from "../Layout/Hero/Hero";
